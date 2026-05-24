@@ -331,14 +331,10 @@ export default function App() {
                 backdropFilter: 'blur(10px)',
               }}
             >
-              {/* Tabs */}
+              {/* Tabs - Compact text-only design */}
               <div
-                className="flex overflow-x-auto scrollbar-hide overflow-x-auto"
-                style={{
-                  borderBottom: '1px solid rgba(168,85,247,0.15)',
-                  scrollBehavior: 'smooth',
-                  WebkitOverflowScrolling: 'touch',
-                }}
+                className="flex justify-between items-center"
+                style={{ borderBottom: '1px solid rgba(168,85,247,0.15)' }}
               >
                 {PLATFORMS.map((p) => {
                   const isActive = activeTab === p.key;
@@ -346,17 +342,14 @@ export default function App() {
                     <button
                       key={p.key}
                       onClick={() => setActiveTab(p.key)}
-                      className="flex-shrink-0 flex items-center gap-2.5 px-4 py-4 text-xs font-bold transition-all duration-300 whitespace-nowrap relative border-b-2"
+                      className="flex-1 py-3 px-2 text-[11px] sm:text-xs font-semibold transition-all duration-300 whitespace-nowrap relative border-b-2"
                       style={{
                         color: isActive ? p.color : '#71717a',
                         borderBottomColor: isActive ? p.color : 'transparent',
                         background: isActive ? `${p.color}08` : 'transparent',
-                        boxShadow: isActive ? `0 0 15px ${p.color}20` : 'none',
                       }}
                     >
-                      <PlatformIcon name={p.icon} size={16} />
-                      <span className="hidden sm:inline">{p.label}</span>
-                      <span className="sm:hidden">{p.key.charAt(0).toUpperCase() + p.key.slice(1)}</span>
+                      {p.label}
                     </button>
                   );
                 })}

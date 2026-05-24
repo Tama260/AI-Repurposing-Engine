@@ -333,8 +333,12 @@ export default function App() {
             >
               {/* Tabs */}
               <div
-                className="flex overflow-x-auto scrollbar-hide"
-                style={{ borderBottom: '1px solid rgba(168,85,247,0.15)' }}
+                className="flex overflow-x-auto scrollbar-hide overflow-x-auto"
+                style={{
+                  borderBottom: '1px solid rgba(168,85,247,0.15)',
+                  scrollBehavior: 'smooth',
+                  WebkitOverflowScrolling: 'touch',
+                }}
               >
                 {PLATFORMS.map((p) => {
                   const isActive = activeTab === p.key;
@@ -572,8 +576,15 @@ export default function App() {
         .scrollbar-hide {
           -ms-overflow-style: none;
           scrollbar-width: none;
+          scroll-behavior: smooth;
         }
         .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar-track {
+          display: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar-thumb {
           display: none;
         }
       `}</style>

@@ -297,21 +297,26 @@ export default function App() {
 
               {/* Platform chips */}
               <div className="flex flex-wrap gap-2 pt-2">
-                {PLATFORMS.map((p) => (
-                  <span
-                    key={p.key}
-                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium border"
-                    style={{
-                      background: 'rgba(255,255,255,0.04)',
-                      color: '#a1a1aa',
-                      borderColor: 'rgba(255,255,255,0.08)',
-                    }}
-                  >
-                    <PlatformIcon name={p.icon} size={12} />
-                    <span className="hidden sm:inline">{p.label}</span>
-                    <span className="sm:hidden">{p.key.charAt(0).toUpperCase() + p.key.slice(1)}</span>
-                  </span>
-                ))}
+                {PLATFORMS.map((p) => {
+                  const isActive = activeTab === p.key;
+                  return (
+                    <button
+                      key={p.key}
+                      onClick={() => setActiveTab(p.key)}
+                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium border transition-all duration-300"
+                      style={{
+                        background: isActive ? `${p.color}15` : 'rgba(255,255,255,0.04)',
+                        color: isActive ? p.color : '#a1a1aa',
+                        borderColor: isActive ? `${p.color}40` : 'rgba(255,255,255,0.08)',
+                        boxShadow: isActive ? `0 0 12px ${p.color}20` : 'none',
+                      }}
+                    >
+                      <PlatformIcon name={p.icon} size={12} />
+                      <span className="hidden sm:inline">{p.label}</span>
+                      <span className="sm:hidden">{p.key.charAt(0).toUpperCase() + p.key.slice(1)}</span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>

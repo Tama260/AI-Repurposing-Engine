@@ -9,7 +9,7 @@ Create a README.md file for this project with this exact content:
 ![Deploy](https://img.shields.io/badge/Deploy-Bolt.host-orange)
 
 ## 🚀 Live Demo
-**[https://ai-repurposing-engine.bolt.host](https://ai-repurposing-engine.bolt.host)**
+**[https://ai-repurposing-engine.netlify.app](https://ai-repurposing-engine.netlify.app)**
 
 ## 📌 What It Does
 Paste any content (blog post, article, newsletter, idea) and instantly get:
